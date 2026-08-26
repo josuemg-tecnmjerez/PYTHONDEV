@@ -13,9 +13,9 @@
 import math
 
 
-print ("Calcular la suma de dos números enteros:")
-a = 1
-b = 2
+print ("-----------------Calcular la suma de dos números enteros:------------------")
+a = int(input("Ingrese el primer número: "))
+b = int(input("Ingrese el segundo numero entero"))
 suma = a + b
 print(suma)
 
@@ -23,25 +23,25 @@ print(suma)
 ##   1. Ingresar la base del triángulo.
 ##   2. Ingresar la altura del triángulo.
 ##   3. Calcular el área utilizando la fórmula: área = (base * altura
-print ("calcular el área de un triángulo:")
-base = 2
-altura = 3
+print ("--------------------------------Calcular el área de un triángulo:-----------------------------")
+base = float(input("Ingrese la base del triángulo: "))
+altura = float(input("Ingrese la altura del triángulo: "))
 area = (base * altura) / 2
 print(area)
 
 ###Para obtener la edad de una persona con base en su año de nacimiento, se deben seguir los siguientes pasos:
 ## 1. Ingresar el año de nacimiento de la persona.
 ## 2. Calcular la edad restando el año de nacimiento al año actual.
-print ("Calcular la edad de una persona con base en su año de nacimiento:")
+print ("-----------------Calcular la edad de una persona con base en su año de nacimiento:------------------")
 print ("Ingrese su año de nacimiento:")
 anio_nacimiento = int(input())
 anio_actual = 2026
 edad = anio_actual - anio_nacimiento
-print ("tU ANIO DE NACIMIENTO ES: " + str(edad))
+print ("Su edad es: " + str(edad))
 
 ##Para obtener el area de un circulo
 ##Para sacar el área de un círculo debes multiplicar el valor de pi (\(\pi \)) por el radio al cuadrado (\(\text{Área} = \pi \times r^2\)).
-print("Calcular el área de un círculo:")
+print("------------------------Calcular el área de un círculo:--------------------------")
 pi = 3.14159
 print ("Ingrese el radio del círculo:")
 radio = float(input())
@@ -56,28 +56,36 @@ print ("El área del círculo es: " + str(area_circulo))
 
 ##PARA SOLUCIONAR LA ECUACION CUADRATICA, SE DEBEN SEGUIR LOS SIGUIENTES PASOS:
 ## ingresar los valores de a, b y c de la ecuación cuadrática ax^2 + bx + c = 0.
-print ("Calcular la ecuación cuadrática:")
+print ("--------------------------------Calcular la ecuación cuadrática:--------------------------------")
 
 ##DEFINIR LOS VALORES DE a, b y c
-a = float(input("Ingresse el valor de a:"))
-b = float(input("Ingresse el valor de b:"))
-c = float(input("Ingresse el valor de c:"))
+import math
 
+print("--------------------------------Calcular la ecuación cuadrática:--------------------------------")
 
-discriminante = (b**2) - (4*a*c)
-if discriminante <= 0:
-    print("La ecuación no tiene soluciones reales.")
+# DEFINIR LOS VALORES DE a, b y c
+a = float(input("Ingrese el valor de a: "))
+b = float(input("Ingrese el valor de b: "))
+c = float(input("Ingrese el valor de c: "))
+
+# Validar que 'a' no sea 0 para evitar división por cero
+if a == 0:
+    print("El coeficiente 'a' no puede ser 0 en una ecuación cuadrática.")
 else:
-    RAIZ =math.sqrt((b**2) - (4*a*c))
-    FORMULA2 = ((-b - RAIZ)/2 * a)
-    FORMULA1 = ((-b + RAIZ)/2 * a)
+    discriminante = (b**2) - (4*a*c)
 
-print (f"El valor de {FORMULA1} y {FORMULA2}")
+    if discriminante < 0:
+        print("La ecuación no tiene soluciones reales.")
+    else:
+        raiz = math.sqrt(discriminante)
+        formula1 = (-b + raiz) / (2 * a)
+        formula2 = (-b - raiz) / (2 * a)
 
+        print(f"Las soluciones son: x1 = {formula1} y x2 = {formula2}")
  ##crear un programa que pida una cantidad de grados Centígrados y los convierta en grados Fahrenheit y grados Rankin
 ##(0 * 9/5) + 32 = 32 
 ## Declarar una variable para almacenar la temperatura en grados Celsius
-print ("Convertir grados Celsius a Fahrenheit y Rankin:")
+print ("--------------------------------Convertir grados Celsius a Fahrenheit y Rankin:--------------------------------")
 celsius = float(input("Ingrese la temperatura en grados Celsius: "))
 CONVERTIR_FAREHEIT = (celsius * 9/5) + 32
 CONVERTIR_RANKIN = (celsius + 273.15) * 9/5
@@ -94,20 +102,21 @@ print(f"{celsius} °C son {CONVERTIR_FAREHEIT} F y {CONVERTIR_RANKIN} °R")
 ## INGRESAR IVA
 ## INGRESAR IMPUESTOS
 
-print("CALCULAR SALARIO NETO")
+print("--------------------------------Calcular salario neto:--------------------------------")
 HORAS_TRABAJADAS = float(input("Ingrese las horas trabajadas: "))
 PRECIO_POR_HORA = float(input("Ingrese el precio por hora: "))
 HORASEXTRA_CANTIDAD = float(input("Ingrese las horas extras trabajadas: "))
 HORASEXTRA_VALOR = PRECIO_POR_HORA * 2
+ISRCOBRO = float(input("Ingrese el porcentaje de ISR a cobrar (en decimal): EJ: 0.30 para 30%): "))
 SALARIOBRUTO = (HORAS_TRABAJADAS * PRECIO_POR_HORA) + (HORASEXTRA_VALOR * (HORASEXTRA_CANTIDAD))
 IVA = SALARIOBRUTO * 0.16
-ISR = SALARIOBRUTO * 0.30
+ISR = SALARIOBRUTO * ISRCOBRO
 RESICO = SALARIOBRUTO * 0.025
 IMPUESTOS = ISR + RESICO 
 SALARIONETO = SALARIOBRUTO - IVA - IMPUESTOS
 
 
-print("Tu pago total es: " + str(SALARIONETO))
+print("Tu pago total es: " + str(SALARIOBRUTO) + " y tu salario neto es: " + str(SALARIONETO))
 
 
 
